@@ -25,9 +25,9 @@ class NormalStrategy(BattleStrategy):
 class AgressivStrategy(BattleStrategy):
 
     def act(self, creature):
-        print(f"{creature.attack()}")
         if hasattr(creature, "transform"):
             print(f"{creature.transform()}")
+            print(f"{creature.attack()}")
         if hasattr(creature, "revert"):
             print(f"{creature.revert()}")
 

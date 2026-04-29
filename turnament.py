@@ -6,7 +6,14 @@ def battle(t: list[tuple[CreatureFactory, BattleStrategy]]):
     opponents = []
     for f, s in t:
         creature = f.create_base()
-        name = creature.__class__.__name__
+        if creature.__class__.__name__ == "Aquabub":
+            name = creature.__class__.__name__
+        elif  creature.__class__.__name__ == "Flameling":
+            name = creature.__class__.__name__
+        elif creature.__class__.__bases__[1].__name__[0] == "H":
+            name = "Healing"
+        else:
+            name = "Transform"
         strat = s.__class__.__name__.replace("Strategy", "")
         opponents.append(f"({name}+{strat})")
     print(f"{'[ ' + ', '.join(opponents) + ' ]'}")
