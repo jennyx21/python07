@@ -1,6 +1,8 @@
-from ex2 import NormalStrategy, AgressivStrategy, DefensivStrategy, BattleStrategy
+from ex2 import NormalStrategy, AgressivStrategy
+from ex2 import DefensivStrategy, BattleStrategy
 from ex1 import HealingCreatureFactory, TransformCreatureFactory
 from ex0 import AquaFactory, FlameFactory, CreatureFactory
+
 
 def battle(t: list[tuple[CreatureFactory, BattleStrategy]]):
     opponents = []
@@ -8,7 +10,7 @@ def battle(t: list[tuple[CreatureFactory, BattleStrategy]]):
         creature = f.create_base()
         if creature.__class__.__name__ == "Aquabub":
             name = creature.__class__.__name__
-        elif  creature.__class__.__name__ == "Flameling":
+        elif creature.__class__.__name__ == "Flameling":
             name = creature.__class__.__name__
         elif creature.__class__.__bases__[1].__name__[0] == "H":
             name = "Healing"
@@ -26,7 +28,7 @@ def battle(t: list[tuple[CreatureFactory, BattleStrategy]]):
         for j in range(i + 1, n):
             c2 = t[j][0].create_base()
             s2 = t[j][1]
-            try: 
+            try:
                 print("\n* Battle *")
                 print(f"{c1.describe()}")
                 print(" vs.")
@@ -53,7 +55,7 @@ def main():
     t1 = [(flameling, normal), (healing, defensiv)]
     t2 = [(flameling, agressiv), (healing, defensiv)]
     t3 = [(aquabub, normal), (healing, defensiv), (shiftling, agressiv)]
-    
+
     print("Tournament 0 (basic)")
     battle(t1)
     print("\nTournament 1 (error)")

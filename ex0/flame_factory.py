@@ -28,7 +28,7 @@ class Pyrodon(Creature):
 
 
 class FlameFactory(CreatureFactory):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
     def create_base(self) -> Creature:
